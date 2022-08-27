@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { Login } from "./screens/Login";
 import { Home } from "./screens/Home";
 
@@ -40,9 +40,12 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: Colors.secondary,
-        tabBarBackgroundColor: Colors.secondary_light,
+      screenOptions={{}}
+      tabBarOptions={{
+        tabBarActiveTintColor: Colors.secondary_light,
+        tabBarLabelColor: Colors.secondary_light,
+        tabBarBackgroundColor: Colors.secondary,
+        backgroundColor: Colors.secondary,
       }}
     >
       <Stack.Screen
@@ -51,7 +54,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Ionicons name="home" color={color} size={size} />
           ),
         }}
       />
@@ -62,7 +65,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: "Post",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="plus" color={color} size={size} />
+            <Ionicons name="add" color={color} size={size} />
           ),
         }}
       />
@@ -73,7 +76,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: "Settings",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <Ionicons name="settings" color={color} size={size} />
           ),
         }}
       />
