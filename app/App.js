@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Login } from "./screens/Login";
 import { Home } from "./screens/Home";
 
@@ -41,13 +42,41 @@ const BottomTabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: Colors.secondary,
+        tabBarBackgroundColor: Colors.secondary_light,
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
 
-      <Stack.Screen name="Post" component={Post} />
+      <Stack.Screen
+        name="Post"
+        component={Post}
+        options={{
+          tabBarLabel: "Post",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="plus" color={color} size={size} />
+          ),
+        }}
+      />
 
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: "Settings",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
