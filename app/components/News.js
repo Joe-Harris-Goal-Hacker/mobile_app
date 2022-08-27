@@ -4,11 +4,11 @@ import politics from '../assets/politics.png';
 
 const News = ({...props}) => {
     return (
-            <TouchableOpacity style={styles.container} onPress={props.onPress}>
+            <TouchableOpacity style={styles.container} onPress={()=>{}}>
                 <View style={{flexDirection: 'column',flexWrap:"wrap"}}>
-                    <Text style={styles.text}>Should abortion be legal?</Text>
+                    <Text style={styles.text}>{props.title}</Text>
                 </View>
-                <Image source={politics} style = {styles.img} />
+                <Image source={props.imgsource} style = {styles.img} />
             </TouchableOpacity>
     );
 }
