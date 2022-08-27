@@ -39,7 +39,8 @@ const Post = () => {
       padding: 10,
       margin: 10,
       flexDirection: 'row'
-  }
+  },
+  
   });
 
 

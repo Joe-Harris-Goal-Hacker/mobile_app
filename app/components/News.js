@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TouchableOpacity, navigate, Image } from "react
 const News = ({...props}) => {
     return (
             <TouchableOpacity style={styles.container} onPress={props.onPress}>
-                <Text style={styles.text}>Hello World</Text>
+                <Text style={styles.text}></Text>
                 <Image source={{uri:'https://randomuser.me/api/portraits/men/1.jpg'}} style = {styles.img} />
             </TouchableOpacity>
     );
