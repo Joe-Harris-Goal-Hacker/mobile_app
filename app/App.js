@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { Login } from "./screens/Login";
 import { Home } from "./screens/Home";
 
@@ -39,15 +40,46 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: Colors.secondary,
+      screenOptions={{}}
+      tabBarOptions={{
+        tabBarActiveTintColor: Colors.secondary_light,
+        tabBarLabelColor: Colors.secondary_light,
+        tabBarBackgroundColor: Colors.secondary,
+        backgroundColor: Colors.secondary,
       }}
     >
-      <Stack.Screen name="Feed" component={Home} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarLabel: "Feed",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} />
+          ),
+        }}
+      />
 
-      <Stack.Screen name="Post" component={Post} />
+      <Stack.Screen
+        name="Post"
+        component={Post}
+        options={{
+          tabBarLabel: "Post",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add" color={color} size={size} />
+          ),
+        }}
+      />
 
-      <Stack.Screen name="Account" component={Settings} />
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: "Account",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
