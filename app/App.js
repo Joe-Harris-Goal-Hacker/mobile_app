@@ -43,11 +43,11 @@ const BottomTabNavigator = () => {
         tabBarActiveTintColor: Colors.secondary,
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Feed" component={Home} />
 
       <Stack.Screen name="Post" component={Post} />
 
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="Account" component={Settings} />
     </Tab.Navigator>
   );
 };

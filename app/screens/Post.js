@@ -1,5 +1,5 @@
 import react, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from "react-native";
+import { View, Text, StyleSheet, TextInput, ScrollView, Button } from "react-native";
 
 const Post = () => {
 
@@ -8,19 +8,18 @@ const Post = () => {
   const onChange = (textValue) => setText(textValue);
 
   return (
-    <>
-    <TouchableOpacity style = {styles.container}>
-      <TextInput
+    
+    <ScrollView contentContainerStyle = {{justifyContent: "space-between"}}>
+      <View style={styles.container}>
+        <TextInput
         placeholder = "Write a description..." multiline={true} numberOfLines={5}
-      />
-    </TouchableOpacity>
+        />
+      </View>
+      <Button title="Upload Images" />
 
-    <Button title="Upload Images" 
-
-    />
-
-    <Button title="Post" />
-    </>
+      <Button title="Post" />
+    </ScrollView>
+    
     
   );
   };
@@ -32,9 +31,7 @@ const Post = () => {
       margin: 5
     },
     container: {
-      height:100,
-      
-      justifyContent: "space-between",
+      height: 100,
       backgroundColor: "#fff",
       padding: 10,
       margin: 10,
