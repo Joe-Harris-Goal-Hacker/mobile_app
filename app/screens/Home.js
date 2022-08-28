@@ -39,7 +39,18 @@ const Home = ({ navigation, route, ...props }) => {
         <FlatList
           data={news}
           renderItem={({ item }) => {
-            return <News title={item.title} imgsource={item.imgsource} />;
+            return (
+              <News
+                title={item.title}
+                imgsource={item.imgsource}
+                onPress={() => {
+                  navigation.navigate("Agree", {
+                    title: item.title,
+                    imgsource: item.imgsource,
+                  });
+                }}
+              />
+            );
           }}
         />
       </View>

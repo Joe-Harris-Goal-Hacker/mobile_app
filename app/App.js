@@ -99,9 +99,16 @@ function App() {
             name="BottomTabNavigator"
             component={BottomTabNavigator}
           />
-
           <Stack.Screen name="Arguments" component={Arguments} />
-          <Stack.Screen name="Agree" component={Agree} />
+          <Stack.Screen
+            name="Agree"
+            component={Agree}
+            options={{
+              headerShown: true,
+              headerTitle: "Should abortion be legal?",
+              headerBackTitleVisible: false,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>
