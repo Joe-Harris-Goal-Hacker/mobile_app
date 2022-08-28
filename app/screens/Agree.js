@@ -1,17 +1,20 @@
 import react, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
-import { Header } from "../components/Header";
 
 const Agree = () => {
   const [countAgree, setcountAgree] = useState(0);
   const [countNeutral, setcountNeutral] = useState(0);
   const [countDisagree, setcountDisagree] = useState(0);
 
+
   return (
     <>
-    <View style={{flexDirection: 'column'}}>
-      <Header title="Should abortion be legal?"/>
-      <Image source={{uri: 'https://cdn.cfr.org/sites/default/files/styles/open_graph/public/image/2022/06/Abortion.jpg'}} style = {styles.img}/>
+    <View style={{
+      flexDirection: 'column', 
+      alignContent: 'center',
+      alignItems: 'center',}}>
+      <Image source={{uri: 'https://cdn.cfr.org/sites/default/files/styles/open_graph/public/image/2022/06/Abortion.jpg'}} style = {styles.img} 
+      resizeMode='contain'/>
     </View>
     <View style={styles.buttons}>
       <Pressable style={styles.btnA} onPress={() => 
@@ -27,8 +30,11 @@ const Agree = () => {
         <Text>Disagree</Text>
       </Pressable>
     </View>
-    <Text>{countAgree+countNeutral+countDisagree}</Text>
-
+    <View style={styles.stats}>
+      <Text>{Math.round(countAgree/(countAgree+countNeutral+countDisagree)*100)}%</Text>
+      <Text>{Math.round(countNeutral/(countAgree+countNeutral+countDisagree)*100)}%</Text>
+      <Text>{Math.round(countDisagree/(countAgree+countNeutral+countDisagree)*100)}%</Text>
+    </View>
     </>
   )
 };
@@ -36,11 +42,11 @@ export { Agree };
 
 const styles = StyleSheet.create({
   img: {
-    width: 600,
-    height: 300,
+    width: 375,
+    height: 220,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 10
+    paddingTop: 220,
   },
   btnA: {
     width: '30%',
@@ -67,7 +73,12 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     padding:10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'space-around',
+    alignContent: 'flex-end'
+  },
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   }
 });
 
