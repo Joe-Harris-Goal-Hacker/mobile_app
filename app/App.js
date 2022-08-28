@@ -53,6 +53,7 @@ const BottomTabNavigator = () => {
         component={Home}
         options={{
           tabBarLabel: "Feed",
+          headerTitle: "Feed",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
           ),
