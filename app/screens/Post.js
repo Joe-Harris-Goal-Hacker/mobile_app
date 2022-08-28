@@ -1,23 +1,26 @@
 import react, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TextInput, ScrollView, Button } from "react-native";
+import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity,
+Button } from "react-native";
 
-const Post = () => {
-
+const Post = ({addNews}) => {
+  console.log(addNews);
   const [text, setText] = useState('');
-
   const onChange = (textValue) => setText(textValue);
-
+  const imgsource = 'https://icon-library.com/images/null-icon/null-icon-3.jpg'
   return (
     
     <ScrollView contentContainerStyle = {{justifyContent: "space-between"}}>
       <View style={styles.container}>
         <TextInput
-        placeholder = "Write a description..." multiline={true} numberOfLines={5}
+          placeholder = "Write a description..." multiline={true} numberOfLines={5}
+          onChangeText = {onChange} 
         />
+        
       </View>
-      <Button title="Upload Images" />
-
-      <Button title="Post" />
+      <TouchableOpacity onPress={() => (addNews(text, 'https://icon-library.com/images/null-icon/null-icon-3.jpg'))}>
+          <Text>Add Topic</Text>
+      </TouchableOpacity>
+            
     </ScrollView>
     
     
@@ -35,7 +38,7 @@ const Post = () => {
       backgroundColor: "#fff",
       padding: 10,
       margin: 10,
-      flexDirection: 'row'
+      flexDirection: 'column'
   },
   
   });

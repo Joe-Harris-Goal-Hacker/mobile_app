@@ -1,14 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, navigate, Image } from "react-native";
-import politics from '../assets/politics.png';
+import { StyleSheet, Text, View, TouchableOpacity, Image, } from "react-native";
 
-const News = ({...props}) => {
+
+
+
+const News = ({title, imgsource}) => {
     return (
-            <TouchableOpacity style={styles.container} onPress={()=>{}}>
+            <TouchableOpacity style={styles.container}>
                 <View style={{flexDirection: 'column',flexWrap:"wrap"}}>
-                    <Text style={styles.text}>{props.title}</Text>
+                    <Text style={styles.text}>{title}</Text>
+                   
                 </View>
-                <Image source={props.imgsource} style = {styles.img} />
+                <Image source={{uri: imgsource}} style = {styles.img} />
             </TouchableOpacity>
     );
 }
@@ -16,7 +19,7 @@ const News = ({...props}) => {
 const styles = StyleSheet.create({
     container: {
         justifyContent: "space-between",
-        backgroundColor: "#fff",
+        backgroundColor: '#daf0f5',
         padding: 10,
         margin: 3,
         flexDirection: 'row',
@@ -45,4 +48,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export {News};
+export { News };
