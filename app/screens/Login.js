@@ -11,10 +11,14 @@ const Login = ({ navigation, route, ...props }) => {
       />
       <View style={{ marginTop: 60 }}>
         <Text>Sign in</Text>
-        {/* <Button
-        title="Go to Arguments"
-        onPress={() => navigation.navigate("Arguments")}
-      /> */}
+        <Button
+          title="Go to Agree"
+          onPress={() => navigation.navigate("Agree")}
+        />
+        <Button
+          title="Go to Argumnets"
+          onPress={() => navigation.navigate("Arguments")}
+        />
         <Button
           title="Home"
           onPress={() => navigation.navigate("BottomTabNavigator")}
